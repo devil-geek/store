@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Header from './components/Header/Header';
+import Articulos from './components/Articulos/Articulos';
 
 
 class App extends Component {
@@ -14,6 +15,7 @@ class App extends Component {
               <div className="tile is-parent">
                 <article className="tile is-child">
                    Articulos
+                   <Articulos/>
                 </article>
               </div>
             </div>
