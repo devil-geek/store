@@ -2,69 +2,81 @@
     "id": 1,
     "nombre": "Beer",
     "desc": "A cold beer",
+    "precio": 50.00,
     "img": "012-beer.png"
   }, {
     "id": 2,
     "nombre": "Cake",
     "desc": "A sweet cake",
+    "precio": 20.00,
     "img": "011-cake.png"
   }, {
     "id": 3,
     "nombre": "Hot Dog",
     "desc": "hot dog",
+    "precio": 10.00,
     "img": "013-hot-dog.png"
   },
   {
     "id": 4,
     "nombre": "French Fries",
     "desc": "Papas",
+    "precio": 10.00,
     "img": "015-french-fries.png"
   },
   {
     "id": 5,
     "nombre": "Milkshake",
     "desc": "Milkshake",
+    "precio": 35.00,
     "img": "019-milkshake.png"
   },
   {
     "id": 6,
     "nombre": "Popcorn",
     "desc": "Popcorn",
+    "precio": 10.00,
     "img": "024-popcorn.png"
   }, 
   {
     "id": 7,
     "nombre": "Hamburguer",
     "desc": "Hamburguer",
+    "precio": 40.00,
     "img": "026-hamburger.png"
   },
   {
     "id": 8,
     "nombre": "Soda",
     "desc": "Soda",
+    "precio": 15.00,
     "img": "027-soda.png"
   },
   {
     "id": 9,
     "nombre": "Ice-Cream",
     "desc": "Ice-Cream",
+    "precio": 10.00,
     "img": "029-ice-cream-1.png"
   },
   {
     "id": 10,
     "nombre": "Sausages",
     "desc": "Sausages",
+    "precio": 15.00,
     "img": "020-sausages.png"
   },
   {
     "id": 11,
     "nombre": "Coffe",
     "desc": "Coffe",
+    "precio": 10.00,
     "img": "025-coffee-cup.png"
   },
   {
     "id": 12,
     "nombre": "Cotton Candy",
     "desc": "Cotton Candy",
+    "precio": 5.00,
     "img": "014-cotton-candy.png"
   }]
