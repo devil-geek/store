@@ -41,7 +41,7 @@ class Cart extends Component {
                       <i className="fa fa-lg fa-plus-circle" />
                     </span>
                   </a> */}
-                  <a className="level-item has-text-dark">
+                  <a className="level-item has-text-dark" onClick={() => {this.props.remove(item)}}>
                     <span className="icon">
                       <i className="fa fa-lg fa-trash" />
                     </span>

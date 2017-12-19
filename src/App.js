@@ -32,16 +32,27 @@ class App extends Component {
       }
       else if(index > -1){ //Modifica la cantidad
         item.cantidad = cantidad + this.state.itemsOnCart[index].cantidad;
-        this.setState((this.state.itemsOnCart, 
-          { $splice: [[index, 1, item]] }
-        ));
+        let aux = this.state.itemsOnCart;
+        aux.splice(index,1,item);
         this.setState({
+          itemsOnCart: aux,
           total: this.state.total + (cantidad * item.precio)
         }) 
       }
 
     }
   }
+
+  RemoveFromCart = (item) =>{
+    let index = this.state.itemsOnCart.indexOf(item);
+    let aux = this.state.itemsOnCart;
+    aux.splice(index,1);
+    this.setState({
+      itemsOnCart: aux,
+      total: this.state.total - (item.cantidad * item.precio)
+    })
+  }
+
   render() {
     return (
       <div>
@@ -70,6 +81,7 @@ class App extends Component {
                <Cart
                   itemsOnCart={this.state.itemsOnCart}
                   total={this.state.total}
+                  remove={this.RemoveFromCart}
                 />
             </article>
           </div>
