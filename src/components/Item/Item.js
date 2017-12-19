@@ -18,19 +18,26 @@ class Item extends Component {
                 cantidad: this.state.cantidad - 1
             }) 
         }  
-    }  
+	} 
+	Reset = () => {
+		this.props.handleItemClick(this.props.data, this.state.cantidad);
+        this.setState({
+            cantidad: 1
+        })
+    } 
     render() {
         return (
 			  	<div className="column is-5-mobile is-5-tablet is-3-desktop is-2-widescreen is-3-fullhd" key={this.props.data.id}>
 					<div className="card">
-						<div className="card-image is-centered pad" onClick={() => this.props.handleItemClick(this.props.data, this.state.cantidad)}>
+						<div className="card-image is-centered pad" onClick={ this.Reset }>
 							<figure className="image is-square">
 								<img src={process.env.PUBLIC_URL + '/products/'+ this.props.data.img} alt="Producto"/>
 							</figure>
 						</div>
 						<div className="card-content is-centered">
 							<div className="content center">
-								{this.props.data.nombre} $ {this.props.data.precio}
+								{/* {this.props.data.nombre}  */}
+								${this.props.data.precio.toFixed(2)}
 							</div>
 						</div>
 						<footer className="card-footer">
