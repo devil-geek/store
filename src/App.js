@@ -3,6 +3,8 @@ import './App.css';
 import Header from './components/Header/Header';
 import Articulos from './components/Articulos/Articulos';
 import Cart from './components/Cart/Cart';
+import Pedidos from './components/Pedidos/Pedidos';
+
 
 class App extends Component {
 
@@ -10,19 +12,19 @@ class App extends Component {
     super(props)
     this.state = {
       itemsOnCart: [],
-      total: 0
+      total: 0,
+      pedidos: []
     }
   }
 
-  AddToCart(item, cantidad) {
-    console.log("id " +item.id)
-    console.log("cantidad " +cantidad)
-    console.log("precio " +item.precio)
+  AddToCart = (item, cantidad) => {
+    // console.log("id " +item.id)
+    // console.log("cantidad " +cantidad)
+    // console.log("precio " +item.precio)
     
     if(parseInt(cantidad, 10) > 0){
       let index = this.state.itemsOnCart.indexOf(item);
 
-      console.log(index)
       if(index === -1){ //Agrega e nuevo item
         item.cantidad = cantidad;
         this.setState({
@@ -53,6 +55,46 @@ class App extends Component {
     })
   }
 
+  Pedir = () =>{
+    let pedido = this.state.itemsOnCart;
+    pedido.total = this.state.total;
+    this.setState({
+      itemsOnCart: [],
+      total: 0,
+      pedidos: this.state.pedidos.concat([pedido])
+    })
+  }
+
+  RemovePedido = (pedido) =>{
+    let index = this.state.pedidos.indexOf(pedido);
+    let aux = this.state.pedidos;
+    aux.splice(index,1);
+    this.setState({
+      pedidos: aux
+    })
+  }
+
+  Cantidad = (action, item) =>{
+    let index = this.state.itemsOnCart.indexOf(item);
+    let aux = this.state.itemsOnCart;
+    let t = this.state.total;
+    if(action === "add"){
+      item.cantidad = item.cantidad + 1;
+      t = this.state.total + item.precio;
+    }
+    else{
+      if(item.cantidad > 1){
+        item.cantidad = item.cantidad - 1;
+        t = this.state.total - item.precio;
+      }
+    }
+    aux.splice(index,1,item);
+    this.setState({
+      itemsOnCart: aux,
+      total: t
+    })
+  }
+
   render() {
     return (
       <div>
@@ -62,26 +104,30 @@ class App extends Component {
             <div className="tile">
               <div className="tile is-parent">
                 <article className="tile is-child pad">
-                   Articulos
                    <Articulos 
-                      handleItemClick={this.AddToCart.bind(this)}
+                      handleItemClick={this.AddToCart}
                     />
                 </article>
               </div>
             </div>
             <div className="tile is-parent">
               <article className="tile is-child">
-                 Pedidos
+                 <Pedidos
+                  pedidos={this.state.pedidos}
+                  removeP={this.RemovePedido}
+                 />
+                 
               </article>
             </div>
           </div>
           <div className="tile is-parent">
             <article className="tile is-child pad">
-               Carrito
                <Cart
                   itemsOnCart={this.state.itemsOnCart}
                   total={this.state.total}
                   remove={this.RemoveFromCart}
+                  pedir={this.Pedir}
+                  modCant={this.Cantidad}
                 />
             </article>
           </div>

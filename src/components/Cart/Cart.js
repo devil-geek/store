@@ -31,16 +31,16 @@ class Cart extends Component {
             <div className="media-right">
               <nav className="level is-mobile">
                 <div className="level-left">
-                  {/* <a className="level-item has-text-danger">
+                  <a className="level-item has-text-danger"  onClick={()=>{this.props.modCant("sub",item)}}>
                     <span className="icon">
                       <i className="fa fa-lg fa-minus-circle" />
                     </span>
                   </a>
-                  <a className="level-item has-text-info">
+                  <a className="level-item has-text-info" onClick={()=>{this.props.modCant("add",item)}}>
                     <span className="iconl">
                       <i className="fa fa-lg fa-plus-circle" />
                     </span>
-                  </a> */}
+                  </a>
                   <a className="level-item has-text-dark" onClick={() => {this.props.remove(item)}}>
                     <span className="icon">
                       <i className="fa fa-lg fa-trash" />
@@ -62,9 +62,9 @@ class Cart extends Component {
                 <img src={icon} alt="shop cart" />
               </figure>
             </div>
-            <div className="media-content">Total: $ {this.props.total.toFixed(2)}</div>
+            <div className="media-content bs">Total: $ {this.props.total.toFixed(2)}</div>
             <div className="media-right">
-              <a className="button is-link">Pagar</a>
+              <a className="button is-link" onClick={this.props.pedir}>Pagar</a>
             </div>
           </article>
         </div>

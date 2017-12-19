@@ -6479,3 +6479,13 @@ body {
 
 .center {
   text-align: center !important; }
+
+.bs {
+  font-size: 1.1rem !important;
+  font-weight: 500 !important; }
+
+.nopadb {
+  padding-bottom: 0 !important; }
+
+.right {
+  text-align: right !important; }

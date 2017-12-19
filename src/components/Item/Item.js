@@ -35,7 +35,7 @@ class Item extends Component {
 							</figure>
 						</div>
 						<div className="card-content is-centered">
-							<div className="content center">
+							<div className="content center bs">
 								{/* {this.props.data.nombre}  */}
 								${this.props.data.precio.toFixed(2)}
 							</div>
@@ -46,7 +46,7 @@ class Item extends Component {
 									<i className="fa fa-lg fa-minus-circle"></i>
 								</span>
 							</a>
-							<a className="card-footer-item">{this.state.cantidad}</a>
+							<a className="card-footer-item bs">{this.state.cantidad}</a>
 							<a className="card-footer-item" onClick={this.Add}>
 								<span className="icon has-text-info">
 									<i className="fa fa-lg fa-plus-circle"></i>
