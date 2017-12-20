@@ -7,22 +7,33 @@ class Pedido extends Component {
       totalp = this.props.pedido.total;
       var listPedido = this.props.pedido.map(function(pedido) {
         return (
-          <div className="column center nopadb is-2-mobile is-2-tablet is-1-desktop is-1-widescreen is-1-fullhd" key={pedido.id}>
-            <figure className="center image is-48x48">
+          <div className="column center nopadb is-2-mobile is-2-tablet is-2-desktop is-1-widescreen is-1-fullhd" key={pedido.id}>
+            <div className="card">
+						<div className="card-image is-centered pad" onClick={ this.Reset }>
+							<figure className="image is-square">
+								<img src={process.env.PUBLIC_URL + '/products/'+ pedido.img} alt="Producto"/>
+							</figure>
+						</div>
+						<div className="card-content is-centered">
+							<div className="content center bs has-text-link">
+                x {pedido.cantidad}
+							</div>
+              </div></div>
+            {/* <figure className="center image is-48x48">
               <img
                 src={process.env.PUBLIC_URL + "/products/" + pedido.img}
                 alt={pedido.nombre}
               />
             </figure>
-            <h2 className="center has-text-link bs">x {pedido.cantidad}</h2>
+            <h2 className="center has-text-link bs">x {pedido.cantidad}</h2> */}
           </div>
         );
-      });
+      }, this);
     }
     return (
       <article className="media">
         <div className="media-content">
-          <div className="columns pedido">
+          <div className="columns  is-multiline is-mobile">
             {listPedido}
           </div>
         </div>

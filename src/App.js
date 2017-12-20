@@ -56,6 +56,9 @@ class App extends Component {
   }
 
   Pedir = () =>{
+    if(this.state.total === 0){
+      return;
+    }
     let pedido = this.state.itemsOnCart;
     pedido.total = this.state.total;
     this.setState({
@@ -114,7 +117,7 @@ class App extends Component {
               <article className="tile is-child">
                  <Pedidos
                   pedidos={this.state.pedidos}
-                  removeP={this.RemovePedido}
+                  remove={this.RemovePedido}
                  />
                  
               </article>

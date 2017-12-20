@@ -22,9 +22,10 @@ class Cart extends Component {
               <div className="content">
                 <p>
                   <strong>{item.nombre}</strong>{" "}
-                  <small> X {item.cantidad}</small>
-                  <br />
-                  ${(item.precio * item.cantidad).toFixed(2) }
+                  <strong className=" has-text-link bs">x {item.cantidad}</strong>
+                  <span className="mov"><br />Precio: ${item.precio.toFixed(2) }</span>
+                  <br/>
+                  <span className="mov">Total: </span>${(item.precio * item.cantidad).toFixed(2) }
                 </p>
               </div>
             </div>
@@ -53,6 +54,7 @@ class Cart extends Component {
         </div>
       );
     }, this);
+    let empty = this.props.total === 0 ? 'disabled' : '';
     return (
       <div>
         <div className="box boxs">
@@ -64,7 +66,7 @@ class Cart extends Component {
             </div>
             <div className="media-content bs">Total: $ {this.props.total.toFixed(2)}</div>
             <div className="media-right">
-              <a className="button is-link" onClick={this.props.pedir}>Pagar</a>
+              <a className={"button is-link" + empty} onClick={this.props.pedir}>Pagar</a>
             </div>
           </article>
         </div>

@@ -27,7 +27,7 @@ class Item extends Component {
     } 
     render() {
         return (
-			  	<div className="column is-5-mobile is-5-tablet is-3-desktop is-2-widescreen is-2-fullhd" key={this.props.data.id}>
+			  	<div className="column is-6-mobile is-4-tablet is-3-desktop is-2-widescreen is-2-fullhd" key={this.props.data.id}>
 					<div className="card">
 						<div className="card-image is-centered pad" onClick={ this.Reset }>
 							<figure className="image is-square">

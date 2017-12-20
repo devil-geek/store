@@ -6489,3 +6489,21 @@ body {
 
 .right {
   text-align: right !important; }
+
+.mov {
+  display: inline; }
+  @media screen and (max-width: 768px) {
+    .mov {
+      display: none; } }
+  @media screen and (min-width: 769px), print {
+    .mov {
+      display: none; } }
+  @media screen and (min-width: 1024px) {
+    .mov {
+      display: none; } }
+  @media screen and (min-width: 1216px) {
+    .mov {
+      display: inline; } }
+  @media screen and (min-width: 1408px) {
+    .mov {
+      display: inline; } }

@@ -3,15 +3,16 @@ import icon from "./pay.jpg";
 import Pedido from '../Pedido/Pedido';
 
 class Pedidos extends Component {
+
   render() {
       var listPedidos = this.props.pedidos.map(function(pedido,index){
           return(
             <Pedido key={index}
-                remove={()=>{this.props.removeP}}
+                remove={this.props.remove}
                 pedido={pedido}
             />
           )
-      })
+      }, this)
     
     return (
       <div>
